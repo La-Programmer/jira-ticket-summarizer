@@ -18,18 +18,22 @@ class SummarizerPromptsEnum(str, Enum):
     Your job is to:
     1. Parse and understand the content from all fields.
     2. Identify the key technical issue (i.e; what’s broken, missing, or required).
-    3. Describe the expected behavior or goal.
-    4. Outline the next technical actions (fix, implementation, testing, validation).
-    5. Stay strictly factual and avoid assumptions. If information is missing, acknowledge it naturally (e.g., “Root cause unclear from current data.”).
+    3. List the steps to reproduce the issue, (if they can be correctly inferred).
+    4. Describe the expected behavior or goal.
+    5. Outline the next technical actions (fix, implementation, testing, validation).
+    6. Stay strictly factual and avoid assumptions. If information is missing, acknowledge it naturally (e.g., “Root cause unclear from current data.”).
+    7. Explain the problem from a high-level perspective as if explaining it to a beginner every time, before going into deep technical levels.
     
     Ticket data (JSON-like):
     {ticket}
 
     OUTPUT FORMAT:
     -------------------- DEVELOPER SUMMARY --------------------
-    <Write a concise paragraph (≤2000 words) addressed to an engineer. Focus on:  
-    - The technical problem or defect  
-    - Expected behavior or intended functionality  
+    <Write a concise paragraph (≤5000 words) addressed to an engineer. Focus on:  
+    - The technical problem or defect (PROBLEM)
+    - Steps to reproduce the error
+    - Expected behavior or intended functionality
+    - Suggested solutions
     - Next steps (fixes, tests, implementation details)  
     Tone: Direct, technical, peer-to-peer.>
     """).strip()
